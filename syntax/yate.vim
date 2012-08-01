@@ -1,3 +1,7 @@
+" Yate - v0.0.1 - 2012-08-02
+" http://github.com/
+" Copyright (c) 2012 Maksim Ryzhikov; Licensed MIT
+
 if exists("b:current_syntax")
 	finish
 endif

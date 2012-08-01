@@ -7,14 +7,14 @@
              */
             meta: {
                 project_name: 'Yate',
-                project_website: '',
+                project_website: 'github.com',
                 author: 'Maksim Ryzhikov',
                 version: '0.0.1',
-                banner: '/*! <%= meta.project_name %> - v<%= meta.version %> - ' + /**/
+                banner: '" <%= meta.project_name %> - v<%= meta.version %> - ' + /**/
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' + /**/
-                '* http://<%=meta.project_website%>/\n' + /**/
-                '* Copyright (c) <%= grunt.template.today("yyyy") %> ' + /**/
-                '<%=meta.author%>; Licensed MIT */'
+                '" http://<%=meta.project_website%>/\n' + /**/
+                '" Copyright (c) <%= grunt.template.today("yyyy") %> ' + /**/
+                '<%=meta.author%>; Licensed MIT'
             },
             concat: {
                 dist: {
