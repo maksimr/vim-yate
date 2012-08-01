@@ -1,0 +1,49 @@
+// Main module
+match / main {
+  /**
+    * Variables declaration
+    */
+  variable = 1
+  string = 'string'
+  parameters = .parameters
+
+  /**
+    * Special keywords
+    * TODO, XXX
+    */
+  <div data-action="action">
+      @class = 'class-attribute'
+      @data-params = 'query={parameters}'
+
+      apply .submodule mode (parameters)
+
+      // debug output
+      console(function())
+      print(function())
+      log(function())
+
+      <ul>
+        for .submodule.items {
+            title = .title && .value || "Default Tittle"
+            length = count(.)
+
+            if title {
+              <li>title</li>
+            }
+        }
+
+        (.footer | .default[name()])
+      </ul>
+  </div>
+
+}
+
+match .submodule mode (nodeset parameters, boolean Bollean, scalar Scalar, wrong WrongType) {
+  <span>
+    Submodule with string interpolation nodeset - {parameters}
+  </span>
+}
+
+func function (default = 'default value'){
+  "Returned value from function: - {default}"
+}
