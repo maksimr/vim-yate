@@ -7,7 +7,6 @@ match / main {
   string = 'string'
   parameters = .parameters
 
-  node = data("some string")
 
   /**
     * Special keywords
@@ -18,6 +17,7 @@ match / main {
       @data-params = 'query={parameters}'
 
       apply .submodule mode (parameters)
+
 
       // debug output
       console(function())
@@ -41,6 +41,15 @@ match / main {
 }
 
 match .submodule mode (nodeset parameters, boolean Bollean, scalar Scalar, wrong WrongType) {
+  node = data("some string")
+
+  (
+      if .foo {
+          "Long text"
+      }
+      // Magick
+  )
+
   <span>
     Submodule with string interpolation nodeset - {parameters}
   </span>
