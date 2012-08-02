@@ -7,6 +7,8 @@ match / main {
   string = 'string'
   parameters = .parameters
 
+  node = data("some string")
+
   /**
     * Special keywords
     * TODO, XXX

@@ -28,8 +28,8 @@ syn match   yateMode               "\([match\|apply]\s\+[\./]\s\+\)\@<=[A-Za-z_-
 syn keyword yateDebug              console print log
 syn keyword yateGlobal             name count exists
 
-syn region  yateString             start=+"+ end=+"+ contains=@Spell,yateCurlyBlock,yateRoundBlock
-syn region  yateString             start=+'+ end=+'+ contains=@Spell,yateCurlyBlock,yateRoundBlock
+syn region  yateString             start=+"+ end=+"+ contains=@Spell,yateCurlyBlock,yateRoundBlock containedin=yateCurlyBlock,yateRoundBlock
+syn region  yateString             start=+'+ end=+'+ contains=@Spell,yateCurlyBlock,yateRoundBlock containedin=yateCurlyBlock,yateRoundBlock
 
 syn region  yateComment            start="/\*" end="\*/" contains=yateTodo
 syn match   yateComment            "//.*" contains=@Spell,yateTodo
