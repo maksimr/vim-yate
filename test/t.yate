@@ -1,0 +1,218 @@
+/*
+    Yate!
+    Example highlighting sintax in file.
+    -----
+    OPTIMIZE
+    FIXME
+    TODO
+    NOTE
+    TBD
+    XXX
+*/
+
+
+// Templates!
+match / mode {
+    /*
+        match - like xsl template
+        / - the root node (also it may be any japath expression)
+        mode - like xsl mode
+    */
+}
+
+match / {
+    /*
+        Template without mode
+    */
+}
+
+match / (arg1, arg2) {
+    /*
+        Template with parameters
+        by default parameters has type nodeset
+    */
+}
+
+match / (nodeset arg1, scalar arg2, boolean arg3, xml arg4, attr arg5) {
+    /*
+        Special types of parameters
+    */
+}
+
+// Body and block
+{
+    /*
+        Body - a block enclosed in braces
+        Inside block has definition of variables,
+        functions, keys and expressions (see below).
+        Body also may be empty
+    */
+    num = 42
+    str = "some string"
+
+    {/*Empty nested body*/}
+}
+
+// Expresions
+
+12 // number
+
+"some string" // string
+
+// interpolation
+"Now that we know who you are,
+I know who I am. I'm not a mistake!
+It all makes sense! In a comic, you know how you can
+tell who the arch-villain's going to be?
+He's the exact opposite of the hero. And
+most times they're friends, like you and me!
+I should've known way back when...
+You know why, {.name}?
+Because of the kids. They called me Mr Glass."
+
+<span>
+    "You know why, {.name}?"
+</span>
+
+<span>
+    .nodeset // text value of jpath
+</span>
+
+23 + 10 // value of addition
+
+foo() // text value of function call
+
+// Variabels
+// Note! Variabels don't changeable
+
+bar = 12
+str = "some string"
+
+(
+    // Block scoping
+    bar = 23
+    log(bar) //-> 23
+)
+
+log(bar) //-> 12
+
+// jPath expression
+
+rootNode = /
+
+items = .items
+item = .items.item
+
+first = .items[0] // get first item in items' collection
+
+id = (.notexist | .exist).id // logical 'OR'
+
+
+// XML fragments
+<h1> Header {.level} </h1>
+
+
+<div>
+    /*
+        String started with '<' is XML fragment
+        Inside the block all XML fragment should be well formed!!
+        Text node allowed only within a well formed XML!!
+    */
+    ok = (
+       // String 'All right!' is inside well formed xml <i></i>,
+       // but all string isn't well formed!
+        <span><i>All right!</i>
+            "Boy"
+        </span>
+    )
+
+    error = (
+        // Text node is not inside well formed xml
+        <span><i> Not
+            Good</i></span> // This is not XML string!!!
+    )
+</div>
+
+// XML attributes
+<span id="identifier">
+    @class = "class attribute"
+</span>
+
+<span class="{.first-class}">
+    @class += " second-class" // extend class attribute
+</span>
+
+<span class="{.first-class}">
+    if .first-class { // conditions
+        @class += " second-class"
+    }
+</span>
+
+// OR
+
+<span>
+    @class = (
+        .first-class
+
+        if .first-class {
+            @class += " second-class"
+        }
+    )
+</span>
+
+// you can set attributes to variable (like xsl:copy-of in xslt)
+<ul>
+    attrs = (
+        @class = 'list-class'
+        @data-params = 'params'
+    )
+    <li>
+        for .items.item {
+            attrs
+            .title
+        }
+    </li>
+</ul>
+
+// control constructions
+
+if (true()) {
+    log('True!')
+}
+
+if (false()) {
+    log('Never execute!')
+} else {
+    log('Why...?')
+}
+
+for .items.item {
+    log(.title)
+}
+
+<h1>
+    if .nodeset {
+        "Exist!"
+    }
+</h1>
+
+// Apply (like xsl:apply-templates)
+
+apply .items.item
+apply .items.item mode
+apply .items.item mode (arg1, arg2)
+
+<div>
+    apply .nodeset mode (arg1, arg2)
+
+    if (1 > 2 && 3 < 4) {
+        'Something go wrong'
+    }
+</div>
+
+// Problems
+<h2>
+    apply ..nodeset[count(.items) = 12] mode (arg1, arg2)
+    apply .* mode (arg1, arg2)
+    apply / mode (arg1, arg2)
+</h2>

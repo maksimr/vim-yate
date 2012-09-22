@@ -1,0 +1,12 @@
+" TODO?
+" --------
+" jPath
+" prefix - +[/]\?[\./]+
+" Name1 - +[A-Za-z*]*+
+" Name2 - +[A-Za-z0-9_-]*+
+" postfix - +\(\[.*\]\)*+
+"syn match   yateJPath "[/]\?\.[A-Za-z*]*[A-Za-z0-9_-]*"
+"syn cluster yateJPath contains=yateJPath
+
+"syn match   yateMode               "\([match\|apply]\s\+\.[A-Za-z][A-Za-z0-9_-]\+\s\+\)\@<=[A-Za-z_-]\+"
+"syn match   yateMode               "\([match\|apply]\s\+[\./]\s\+\)\@<=[A-Za-z_-]\+"

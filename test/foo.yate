@@ -4,7 +4,7 @@ match / main {
     * Variables declaration
     */
   variable = 1
-  string = 'string'
+  str = 'string'
   parameters = .parameters
 
 
@@ -24,9 +24,13 @@ match / main {
       print(function())
       log(function())
 
+      // build-in function
+      number('1')
+      string('string')
+
       <ul>
         for .submodule.items {
-            title = .title && .value || "Default Tittle"
+            title = (.title && .value ) || "Default Tittle"
             length = count(.)
 
             if title {
@@ -50,8 +54,30 @@ match .submodule mode (nodeset parameters, boolean Bollean, scalar Scalar, wrong
       // Magick
   )
 
+  <h1>
+      Header text {parameters}
+      apply .foo
+      (
+          if .foo {
+              "Long text"
+          }
+          // Magick
+      )
+  </h1>
+
+  <a href="">
+      Linc  text {parameters}
+      apply .foo
+      (
+          if .foo {
+              "Long text"
+          }
+          // Magick
+      )
+  </a>
+
   <span>
-    Submodule with string interpolation nodeset - {parameters}
+    "Submodule with string interpolation nodeset - {parameters}"
   </span>
 }
 

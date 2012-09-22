@@ -9,7 +9,7 @@
                 project_name: 'Yate',
                 project_website: 'github.com',
                 author: 'Maksim Ryzhikov',
-                version: '0.0.1',
+                version: '0.0.2',
                 banner: '" <%= meta.project_name %> - v<%= meta.version %> - ' + /**/
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' + /**/
                 '" http://<%=meta.project_website%>/\n' + /**/
