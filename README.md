@@ -1,4 +1,5 @@
-2012-09-22
+```
+
 
         .--.
         /  6_6
@@ -9,3 +10,7 @@
          |||      - Add it `Bundle 'maksimr/vim-yate'` in your .vimrc file.
          |||      - Enjoy!1
          '|'        2012 Maksim Ryzhikov
+
+
+2012-09-22
+```
