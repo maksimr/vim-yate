@@ -1,0 +1,38 @@
+snippet a
+	apply ${1:.}
+snippet ap
+	apply ${1:.} ${2:mode}
+snippet a(
+	apply ${1:.} (${2}
+snippet m
+	match ${1:/} {
+		${2}
+	}
+snippet mm
+	match ${1:/} ${2:mode}{
+		${3}
+	}
+snippet mo
+	module "${1}"
+snippet if
+	if ${1} {
+		${2}
+	}
+snippet ife
+	if ${1} {
+		${2}
+	} else {
+		${3}
+	}
+snippet f
+	func ${1}(){
+		${2}
+	}
+snippet k
+	key ${1}(${2}){
+		${3}
+	}
+snippet for
+	for ${1:jpath} {
+		${2:index()}
+	}
