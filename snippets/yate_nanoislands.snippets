@@ -1,0 +1,40 @@
+snippet nb:s
+	nb-select({
+	  'size': 's'
+	  'id': '${1}'
+	  'class': '${0}'
+	  'attrs': {
+			'name': 'my-name'
+	   }
+	  'items': [
+		  {
+			  'text': 'Карта'
+			  'value': 'option1'
+			  'selected': 'true'
+		  }
+	  ]
+	})
+snippet nb:i
+	nb-input({
+		'size': 's'
+		'attrs': {
+			'placeholder': ''
+			'type': '{${1:password}'
+		}
+	})
+snippet nb:c
+	nb-checkbox({
+		'type': 'checkbox'
+		'text': '${1}'
+		'attrs': {
+			'name': '${0}'
+		}
+	})
+snippet nb:c
+	nb-checkbox({
+		'type': 'radio'
+		'text': '${1}'
+		'attrs': {
+			'name': '${0}'
+		}
+	})
